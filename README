@@ -1,9 +1,12 @@
-CampFahrplan
+OSCFahrplan
 
-CampFahrplan allows you to view the schedule of 2011 Chaos Communcation Camp's conference schedule,
+OSCFahrplan allows you to view the schedule of 2011 openSUSE Conference,
 set reminders and read the abstract of each lecture.
 
+It is based on CampFahrplan for 2011 Chaos Communcation Camp by Daniel Dorau.
 
+Copyright 2011 Thomas Schmidt and Pavol Rusnak.
+Copyright 2011 Daniel Dorau.
 Portions Copyright 2008-2011 The K-9 Dog Walkers and 2006-2011 the Android Open Source Project.
 
 LICENSE
