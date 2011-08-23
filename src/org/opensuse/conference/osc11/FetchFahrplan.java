@@ -1,4 +1,4 @@
-package nerd.tuxmobil.fahrplan.camp11;
+package org.opensuse.conference.osc11;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.util.zip.GZIPInputStream;
 
 import javax.net.ssl.SSLException;
 
-import nerd.tuxmobil.fahrplan.camp11.CustomHttpClient.HTTP_STATUS;
+import org.opensuse.conference.osc11.CustomHttpClient.HTTP_STATUS;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;

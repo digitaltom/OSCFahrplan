@@ -2,7 +2,7 @@
 <RelativeLayout android:layout_width="match_parent"
 	android:layout_height="match_parent" android:orientation="vertical"
 	android:background="#000000" xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res/nerd.tuxmobil.fahrplan.camp11">
+	xmlns:app="http://schemas.android.com/apk/res/org.opensuse.conference.osc11">
 	
 	<com.markupartist.android.widget.ActionBar 
     	android:id="@+id/actionbar"

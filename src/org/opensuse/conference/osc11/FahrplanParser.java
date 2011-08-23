@@ -1,4 +1,4 @@
-package nerd.tuxmobil.fahrplan.camp11;
+package org.opensuse.conference.osc11;
 
 import java.io.StringReader;
 import java.util.ArrayList;

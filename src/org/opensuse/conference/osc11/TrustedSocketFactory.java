@@ -1,6 +1,6 @@
-package nerd.tuxmobil.fahrplan.camp11;
+package org.opensuse.conference.osc11;
 
-import nerd.tuxmobil.fahrplan.camp11.TrustManagerFactory;
+import org.opensuse.conference.osc11.TrustManagerFactory;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.apache.http.conn.scheme.LayeredSocketFactory;
 import org.apache.http.params.HttpParams;

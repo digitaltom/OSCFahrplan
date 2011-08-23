@@ -1,4 +1,4 @@
-package nerd.tuxmobil.fahrplan.camp11;
+package org.opensuse.conference.osc11;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,8 +6,8 @@ import java.util.HashMap;
 import com.markupartist.android.widget.ActionBar;
 import com.markupartist.android.widget.ActionBar.Action;
 
-import nerd.tuxmobil.fahrplan.camp11.CustomHttpClient.HTTP_STATUS;
-import nerd.tuxmobil.fahrplan.camp11.MyApp.TASKS;
+import org.opensuse.conference.osc11.CustomHttpClient.HTTP_STATUS;
+import org.opensuse.conference.osc11.MyApp.TASKS;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
@@ -930,7 +930,7 @@ public class Fahrplan extends Activity implements response_callback,
 					.setText(getString(R.string.appVersion)
 							+ " "
 							+ getApplicationContext().getPackageManager()
-									.getPackageInfo("nerd.tuxmobil.fahrplan.camp11", 0).versionName);
+									.getPackageInfo("org.opensuse.conference.osc11", 0).versionName);
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 			text.setText("");

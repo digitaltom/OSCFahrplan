@@ -1,4 +1,4 @@
-package nerd.tuxmobil.fahrplan.camp11;
+package org.opensuse.conference.osc11;
 
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
