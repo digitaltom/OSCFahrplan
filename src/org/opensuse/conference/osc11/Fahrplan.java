@@ -1,51 +1,29 @@
 package org.opensuse.conference.osc11;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
-import com.markupartist.android.widget.ActionBar;
-import com.markupartist.android.widget.ActionBar.Action;
+import org.opensuse.conference.osc11.CustomHttpClient.*;
+import org.opensuse.conference.osc11.MyApp.*;
 
-import org.opensuse.conference.osc11.CustomHttpClient.HTTP_STATUS;
-import org.opensuse.conference.osc11.MyApp.TASKS;
-import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.app.ProgressDialog;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.Configuration;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.format.Time;
-import android.util.Log;
-import android.view.ContextMenu;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.view.View.OnClickListener;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.LinearLayout.LayoutParams;
+import android.app.*;
+import android.content.*;
+import android.content.pm.PackageManager.*;
+import android.content.res.*;
+import android.database.*;
+import android.database.sqlite.*;
+import android.net.*;
+import android.os.*;
+import android.text.format.*;
+import android.util.*;
+import android.view.*;
+import android.view.ContextMenu.*;
+import android.view.View.*;
+import android.view.animation.*;
+import android.widget.*;
+import android.widget.LinearLayout.*;
+
+import com.markupartist.android.widget.*;
+import com.markupartist.android.widget.ActionBar.*;
 
 public class Fahrplan extends Activity implements response_callback,
 		OnClickListener, parser_callback {
@@ -117,39 +95,31 @@ public class Fahrplan extends Activity implements response_callback,
         actionBar = (ActionBar) findViewById(R.id.actionbar);
         
         dayTextView = actionBar.addAction(new Action() {
-            @Override
             public void performAction(View view) {
             	chooseDay();
             }
-            @Override
             public int getDrawable() {
                 return 0;
             }
-            @Override
             public String getText() {
                 return getString(R.string.day);
             }
             
-            @Override
             public void ready(View view) {
             }
         });
         
         actionBar.addAction(new Action() {
-            @Override
             public void performAction(View view) {
             	fetchFahrplan();
             }
-            @Override
             public int getDrawable() {
                 return R.drawable.refresh_btn;
             }
-            @Override
             public String getText() {
                 return null;
             }
             
-            @Override
             public void ready(View view) {
             	refreshBtn = view;
             }
@@ -275,7 +245,8 @@ public class Fahrplan extends Activity implements response_callback,
 		}
 	}
 
-	public boolean onCreateOptionsMenu(Menu menu) {
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
 		MenuInflater mi = new MenuInflater(getApplication());
 		mi.inflate(R.menu.mainmenu, menu);
@@ -298,7 +269,8 @@ public class Fahrplan extends Activity implements response_callback,
 		fetcher.fetch(this, "/export/schedule.en.xml", global);
 	}
 
-	public boolean onOptionsItemSelected(MenuItem item) {
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 		Intent intent;
 		switch (item.getItemId()) {
 		/*
@@ -381,7 +353,6 @@ public class Fahrplan extends Activity implements response_callback,
 				Log.d(LOG_TAG, "position is "+pos);
 				parent.post(new Runnable() {
 					
-					@Override
 					public void run() {
 						parent.scrollTo(0, pos);						
 					}
@@ -395,7 +366,6 @@ public class Fahrplan extends Activity implements response_callback,
 								final int hpos = i;
 								horiz.post(new Runnable() {
 									
-									@Override
 									public void run() {
 										horiz.scrollToColumn(hpos);
 									}
@@ -458,7 +428,6 @@ public class Fahrplan extends Activity implements response_callback,
 		alert.show();
 	}
 
-	@Override
 	public void onGotResponse(HTTP_STATUS status, String response) {
 		Log.d(LOG_TAG, "Response... " + status);
 		MyApp.task_running = TASKS.NONE;
@@ -477,7 +446,6 @@ public class Fahrplan extends Activity implements response_callback,
 						R.string.dlg_certificate_message_fmt, this,
 						new cert_accepted() {
 
-							@Override
 							public void cert_accepted() {
 								Log.d(LOG_TAG, "fetch on cert accepted.");
 								fetchFahrplan();
@@ -857,7 +825,6 @@ public class Fahrplan extends Activity implements response_callback,
 		cursor.close();
 	}
 
-	@Override
 	public void onClick(View v) {
 		Lecture lecture = (Lecture) v.getTag();
 		Log.d(LOG_TAG, "Click on " + lecture.title);
@@ -873,7 +840,6 @@ public class Fahrplan extends Activity implements response_callback,
 		startActivity(intent);
 	}
 
-	@Override
 	public void onParseDone(Boolean result, String version) {
 		Log.d(LOG_TAG, "parseDone: " + result);
 		MyApp.task_running = TASKS.NONE;
@@ -1100,7 +1066,8 @@ public class Fahrplan extends Activity implements response_callback,
 		db.close();
 	}
 	
-	public boolean onContextItemSelected(MenuItem item) {
+	@Override
+    public boolean onContextItemSelected(MenuItem item) {
 		int menuItemIndex = item.getItemId();
 		Lecture lecture = (Lecture)contextMenuView.getTag();
 		
@@ -1135,7 +1102,8 @@ public class Fahrplan extends Activity implements response_callback,
 		return true;
 	}
 
-	public void onCreateContextMenu(ContextMenu menu, View v,
+	@Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		menu.add(0, 0, 0, getString(R.string.toggle_highlight));
@@ -1153,7 +1121,8 @@ public class Fahrplan extends Activity implements response_callback,
 		}
 	}
 	
-	public void onActivityResult(int requestCode, int resultCode, Intent intent)
+	@Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent)
 	{
 		super.onActivityResult(requestCode, resultCode, intent);
 

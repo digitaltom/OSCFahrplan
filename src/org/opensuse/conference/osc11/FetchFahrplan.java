@@ -1,28 +1,19 @@
 package org.opensuse.conference.osc11;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.util.zip.GZIPInputStream;
+import java.io.*;
+import java.net.*;
+import java.security.*;
+import java.util.zip.*;
 
-import javax.net.ssl.SSLException;
+import javax.net.ssl.*;
 
-import org.opensuse.conference.osc11.CustomHttpClient.HTTP_STATUS;
+import org.apache.http.*;
+import org.apache.http.client.*;
+import org.apache.http.client.methods.*;
+import org.opensuse.conference.osc11.CustomHttpClient.*;
 
-import org.apache.http.Header;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-
-import android.os.AsyncTask;
-import android.util.Log;
+import android.os.*;
+import android.util.*;
 
 interface response_callback {
 	void onGotResponse(HTTP_STATUS status, String response);
@@ -56,18 +47,21 @@ class fetcher extends AsyncTask<String, Void, HTTP_STATUS> {
 		this.callback = cb;
 	}
 
-	protected HTTP_STATUS doInBackground(String... args) {
+	@Override
+    protected HTTP_STATUS doInBackground(String... args) {
 		String box = CustomHttpClient.getAddr();
 
 		return fetchthis(box, args[0]);
 
 	}
 
-	protected void onCancelled() {
+	@Override
+    protected void onCancelled() {
 		Log.d(LOG_TAG, "fetch cancelled");
 	}
 
-	protected void onPostExecute(HTTP_STATUS status) {
+	@Override
+    protected void onPostExecute(HTTP_STATUS status) {
 		if (status == HTTP_STATUS.HTTP_OK) {
 			Log.d(LOG_TAG, "fetch done successfully");
 			this.callback.onGotResponse(status, responseStr);
@@ -89,7 +83,7 @@ class fetcher extends AsyncTask<String, Void, HTTP_STATUS> {
 			return HTTP_STATUS.HTTP_SSL_SETUP_FAILURE;
 		}
 
-		String address = "https://" + addr + arg;
+        String address = "http://" + addr + arg;
 
 		Log.d("Fetch", address);
 		HttpGet getRequest = new HttpGet(address);
