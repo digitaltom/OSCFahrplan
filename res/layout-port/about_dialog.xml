@@ -7,7 +7,7 @@
 		android:layout_gravity="top" android:padding="10dp">
 		<ImageView android:layout_height="wrap_content"
 			android:layout_width="wrap_content" android:id="@+id/imageView1"
-			android:src="@drawable/rocket_dialog" android:layout_gravity="center"
+			android:src="@drawable/about_dialog" android:layout_gravity="center"
 			android:paddingBottom="15dp"></ImageView>
 		<TextView android:id="@+id/eventTitle" android:layout_width="wrap_content"
 			android:textColor="#FFF" android:textSize="16sp" android:text="Title"
