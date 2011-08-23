@@ -116,7 +116,7 @@ public class CustomHttpClient {
 	}
 
 	public static String getAddr() {
-		return "events.ccc.de";
+		return "conference.opensuse.org";
 	}
 	
 	public static String normalize_addr(String addr) {

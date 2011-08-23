@@ -295,7 +295,7 @@ public class Fahrplan extends Activity implements response_callback,
 			statusBar.startAnimation(slideUpIn);
 		}
 		MyApp.task_running = TASKS.FETCH;
-		fetcher.fetch(this, "/camp/2011/Fahrplan/schedule.en.xml", global);
+		fetcher.fetch(this, "/export/schedule.en.xml", global);
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
