@@ -1,34 +1,18 @@
 package org.opensuse.conference.osc11;
 
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
-import android.text.util.Linkify;
-import android.text.util.Linkify.TransformFilter;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 public class EventDetail extends Activity {
 
 	private final String LOG_TAG = "Detail";
-	private String event_id;
 	private String title;
-	private int startTime;
-	private static String feedbackURL = "https://cccv.pentabarf.org/feedback/Camp 2011/event/"; // + 4302.en.html
-	private Locale locale;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,11 +20,6 @@ public class EventDetail extends Activity {
         setContentView(R.layout.detail);
         
         Intent intent = getIntent();
-        
-        locale = getResources().getConfiguration().locale;
-     
-        event_id = intent.getStringExtra("eventid");
-        startTime = intent.getIntExtra("time", 0);
         
         TextView t = (TextView)findViewById(R.id.title);
         title = intent.getStringExtra("title");
@@ -81,32 +60,5 @@ public class EventDetail extends Activity {
         	t.setVisibility(View.GONE);
         }
     }
-    
-	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-		MenuInflater mi = new MenuInflater(getApplication());
-		mi.inflate(R.menu.detailmenu, menu);
-		return true;
-	}
-
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.item_feedback:
-			StringBuilder sb = new StringBuilder();
-			sb.append(feedbackURL);
-			sb.append(event_id).append(".");
-			if (locale.getLanguage().equals("de")) {
-				sb.append("de");
-			} else {
-				sb.append("en");
-			}
-			sb.append(".html");
-			Uri uri = Uri.parse(sb.toString());
-			Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-			startActivity(intent);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 
 }

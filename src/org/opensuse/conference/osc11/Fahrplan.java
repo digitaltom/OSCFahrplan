@@ -39,7 +39,7 @@ public class Fahrplan extends Activity implements response_callback,
 	private int day = 1;
 	private View dayTextView;
 	public static Context context = null;
-	public static String[] rooms = { "Kourou", "Baikonur" };
+	public static String[] rooms = { "Main Hall", "Ballroom", "BR-Room", "Salon Brendl", "Cafeteria" };
 	private FahrplanParser parser;
 	private LinearLayout statusBar;
 	private Animation slideUpIn;
