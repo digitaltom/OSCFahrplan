@@ -39,7 +39,7 @@ public class Fahrplan extends Activity implements response_callback,
 	private int day = 1;
 	private View dayTextView;
 	public static Context context = null;
-	public static String[] rooms = { "Main Hall", "Ballroom", "BR-Room", "Salon Brendl", "Cafeteria" };
+	public static String[] rooms = { "Main Hall", "Ballroom", "BR-Room", "Salon Brendl" };
 	private FahrplanParser parser;
 	private LinearLayout statusBar;
 	private Animation slideUpIn;
@@ -73,24 +73,25 @@ public class Fahrplan extends Activity implements response_callback,
 		scale = getResources().getDisplayMetrics().density;
 
 		trackColors = new HashMap<String, Integer>();
-		trackColors.put("Hacking", R.drawable.hacking_event_border);
-		trackColors.put("Society", R.drawable.society_event_border);
-		trackColors.put("Making", R.drawable.making_event_border);
+
+		trackColors.put("Applications and Services", R.drawable.hacking_event_border);
+		trackColors.put("SUSE Labs Conference Track", R.drawable.society_event_border);
+		trackColors.put("Tools and Infrastructure", R.drawable.making_event_border);
 		trackColors.put("Community", R.drawable.community_event_border);
-		trackColors.put("Culture", R.drawable.culture_event_border);
-		trackColors.put("Science", R.drawable.science_event_border);
-		trackColors.put("Misc", R.drawable.misc_event_border);
-		trackColors.put("Hacker Space Program", R.drawable.hacker_space_program_event_border);
+		trackColors.put("New Technology", R.drawable.culture_event_border);
+		trackColors.put("unknown", R.drawable.science_event_border);
+		trackColors.put("Package and Build", R.drawable.misc_event_border);
+		trackColors.put("12.1", R.drawable.hacker_space_program_event_border);
 		
 		trackColorsHi = new HashMap<String, Integer>();
-		trackColorsHi.put("Hacking", R.drawable.hacking_event_border_highlight);
-		trackColorsHi.put("Society", R.drawable.society_event_border_highlight);
-		trackColorsHi.put("Making", R.drawable.making_event_border_highlight);
+		trackColorsHi.put("Applications and Services", R.drawable.hacking_event_border_highlight);
+		trackColorsHi.put("SUSE Labs Conference Track", R.drawable.society_event_border_highlight);
+		trackColorsHi.put("Tools and Infrastructure", R.drawable.making_event_border_highlight);
 		trackColorsHi.put("Community", R.drawable.community_event_border_highlight);
-		trackColorsHi.put("Culture", R.drawable.culture_event_border_highlight);
-		trackColorsHi.put("Science", R.drawable.science_event_border_highlight);
-		trackColorsHi.put("Misc", R.drawable.misc_event_border_highlight);
-		trackColorsHi.put("Hacker Space Program", R.drawable.hacker_space_program_event_border_highlight);
+		trackColorsHi.put("New Technology", R.drawable.culture_event_border_highlight);
+		trackColorsHi.put("unknown", R.drawable.science_event_border_highlight);
+		trackColorsHi.put("Package and Build", R.drawable.misc_event_border_highlight);
+		trackColorsHi.put("12.1", R.drawable.hacker_space_program_event_border_highlight);
 
         actionBar = (ActionBar) findViewById(R.id.actionbar);
         
@@ -314,8 +315,10 @@ public class Fahrplan extends Activity implements response_callback,
 		updateRoomTitle(0);
 
 		fillTimes();
-		fillRoom("Kourou", R.id.raum1);
-		fillRoom("Baikonur", R.id.raum2);
+		fillRoom(rooms[0], R.id.raum1);
+		fillRoom(rooms[1], R.id.raum2);
+		fillRoom(rooms[2], R.id.raum3);
+		fillRoom(rooms[3], R.id.raum4);
 //		dayTextView.setText(String
 //				.format("%s %d", getString(R.string.day), day));
 		actionBar.updateText(dayTextView, String.format("%s %d", getString(R.string.day), day));

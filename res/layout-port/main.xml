@@ -43,10 +43,14 @@
 						android:layout_width="285dp" android:layout_height="match_parent"
 						android:orientation="vertical">
 					</LinearLayout>
-<!--				<LinearLayout android:id="@+id/raum3"
+					<LinearLayout android:id="@+id/raum3"
 						android:layout_width="285dp" android:layout_height="match_parent"
 						android:orientation="vertical">
-					</LinearLayout> -->
+					</LinearLayout>
+					<LinearLayout android:id="@+id/raum4"
+						android:layout_width="285dp" android:layout_height="match_parent"
+						android:orientation="vertical">
+					</LinearLayout>
 				</LinearLayout>
 			</org.opensuse.conference.osc11.HorizontalSnapScrollView>
 		</LinearLayout>

@@ -15,21 +15,31 @@
 		android:layout_height="wrap_content" android:layout_below="@id/actionbar">
 		<TextView android:layout_height="wrap_content"
 			android:layout_width="25dp" android:text=""></TextView>
+
 		<TextView android:textColor="#ffffff" android:layout_height="wrap_content"
-			android:layout_gravity="center" android:text="Kourou"
+			android:layout_gravity="center" android:text="Main Hall"
 			android:textStyle="bold" android:textSize="11sp"
 			android:layout_weight="1" android:layout_width="wrap_content"
 			android:gravity="center"></TextView>
+
 		<TextView android:textColor="#ffffff" android:layout_height="wrap_content"
-			android:layout_gravity="center" android:text="Baikonur"
+			android:layout_gravity="center" android:text="Ballroom"
 			android:textStyle="bold" android:textSize="11sp"
 			android:layout_weight="1" android:layout_width="wrap_content"
 			android:gravity="center"></TextView>
-<!--	<TextView android:textColor="#ffffff" android:layout_height="wrap_content"
-			android:layout_gravity="center" android:text="Saal 3"
+
+		<TextView android:textColor="#ffffff" android:layout_height="wrap_content"
+			android:layout_gravity="center" android:text="BR-Room"
 			android:textStyle="bold" android:textSize="11sp"
 			android:layout_weight="1" android:layout_width="wrap_content"
-			android:gravity="center"></TextView>-->
+			android:gravity="center"></TextView>
+
+		<TextView android:textColor="#ffffff" android:layout_height="wrap_content"
+			android:layout_gravity="center" android:text="Salon Brendl"
+			android:textStyle="bold" android:textSize="11sp"
+			android:layout_weight="1" android:layout_width="wrap_content"
+			android:gravity="center"></TextView>
+
 	</LinearLayout>
 	<ScrollView android:id="@+id/scrollView1"
 		android:layout_width="fill_parent" android:layout_height="fill_parent"
@@ -54,10 +64,14 @@
 					android:layout_width="wrap_content" android:layout_weight="1"
 					android:layout_height="match_parent" android:orientation="vertical">
 				</LinearLayout>
-<!-- 			<LinearLayout android:id="@+id/raum3"
+				<LinearLayout android:id="@+id/raum3"
 					android:layout_width="wrap_content" android:layout_weight="1"
 					android:layout_height="match_parent" android:orientation="vertical">
-				</LinearLayout>-->
+				</LinearLayout>
+				<LinearLayout android:id="@+id/raum4"
+					android:layout_width="wrap_content" android:layout_weight="1"
+					android:layout_height="match_parent" android:orientation="vertical">
+				</LinearLayout>
 			</LinearLayout>
 		</LinearLayout>
 	</ScrollView>
