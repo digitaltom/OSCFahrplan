@@ -9,17 +9,7 @@ require "time"
 URL = "http://conference.opensuse.org/indico//conferenceOtherViews.py?confId=2&view=xml&fr=no"
 
 def escape_xml(input)
-   result = input.dup
-   result.gsub!(/[&<>'"]/) do | match |
-     case match
-     when '&' then return '&amp;'
-     when '<' then return '&lt;'
-     when '>' then return '&gt;'
-     when "'" then return '&apos;'
-     when '"' then return '&quot;'
-     end
-   end
-   return result
+  return input.gsub(/&/, '&amp;').gsub(/</, '&lt;').gsub(/>/, '&gt;')
 end
 
 
@@ -82,8 +72,8 @@ dates.each_with_index do |date, i|
       type = talk.find_first( "type/name" ).nil? ? "unknown" : talk.find_first( "type/name" ).content
       event << XML::Node.new("type", type )
       event << XML::Node.new("language", "en" )
-      event << XML::Node.new("abstract", escape_xml( talk.find_first( "abstract" ).content ) )
-      event << XML::Node.new("description", " " )
+      event << XML::Node.new("abstract", " " )
+      event << XML::Node.new("description", escape_xml( talk.find_first( "abstract" ).content ) )
       persons = XML::Node.new("persons")
       event << persons
       talk.find( "speakers/user" ).each do |speaker|
