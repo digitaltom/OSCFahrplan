@@ -71,7 +71,7 @@ dates.each_with_index do |date, i|
       event << XML::Node.new("track", track )
       type = talk.find_first( "type/name" ).nil? ? "unknown" : talk.find_first( "type/name" ).content
       event << XML::Node.new("type", type )
-      event << XML::Node.new("language", "en" )
+      event << XML::Node.new("language", "" )
       event << XML::Node.new("abstract", " " )
       event << XML::Node.new("description", escape_xml( talk.find_first( "abstract" ).content ) )
       persons = XML::Node.new("persons")
